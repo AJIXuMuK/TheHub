@@ -1,0 +1,13 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "version": "1.8.2",
+    "libraryName": "the-hub",
+    "libraryId": "2c51dbf3-1321-4d45-a787-060c0c7aaea7",
+    "environment": "spo",
+    "packageManager": "npm",
+    "framework": "none",
+    "isCreatingSolution": true,
+    "isDomainIsolated": false,
+    "componentType": "webpart"
+  }
+}

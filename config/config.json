@@ -1,0 +1,33 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "the-hub-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/theHub/TheHubWebPart.js",
+          "manifest": "./src/webparts/theHub/TheHubWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {
+    "vue": "./node_modules/vue/dist/vue.min.js",
+    "jquery": {
+      "path": "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js",
+      "globalName": "jquery"
+    },
+    "bootstrap": {
+      "path": "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js",
+      "globalName": "bootstrap",
+      "globalDependencies": ["jquery"]
+    },
+    "primebuton":{
+      "path": "https://unpkg.com/primevue/components/button/button.umd.min.js",
+      "globalName": "PrimeButton"
+    }
+  },
+  "localizedResources": {
+    "TheHubWebPartStrings": "lib/webparts/theHub/loc/{locale}.js"
+  }
+}
