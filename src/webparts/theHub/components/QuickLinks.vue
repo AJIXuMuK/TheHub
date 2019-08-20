@@ -1,10 +1,5 @@
 <template>
-   
-
-
         <div><v-runtime-template :template="title"></v-runtime-template></div>
-
-       
 </template>
 
 <script lang="ts">

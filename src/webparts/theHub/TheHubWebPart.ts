@@ -48,7 +48,7 @@ export default class TheHubWebPart extends BaseClientSideWebPart<ITheHubWebPartP
         <QuickLinksComponent/>
       </div>
       `,
-      components: { TheHubComponent,QuickLinksComponent }
+      components: { TheHubComponent,QuickLinksComponent,Button }
     });
   }
 

@@ -1,6 +1,6 @@
 <template>
 <div>
-    <!-- <Button label="Secondary" class="p-button-secondary" /> -->
+    <Button label="Secondary" class="p-button-secondary" />
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       
         <!-- Wrapper for slides -->
