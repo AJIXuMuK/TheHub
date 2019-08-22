@@ -2,6 +2,16 @@
 
 This is where you include your WebPart documentation.
 
+While build one weired issue (web-part.js from UglifyJs Unexpected token:) will come, please refer below path
+
+https://github.com/SharePoint/sp-dev-docs/issues/2782
+
+https://gist.github.com/marcDeSantis/ac0493f92cea8aac74aa256ffbda9eea
+
+Solution on below path
+
+C:\Work\Projects\SPFX\VueJS\TheHub\sharepoint\solution
+
 ### Building the code
 
 ```bash

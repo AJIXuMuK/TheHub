@@ -38,11 +38,6 @@ export default class TheHubWebPart extends BaseClientSideWebPart<ITheHubWebPartP
 
     let el = new Vue({
       el: `#${id}`,
-      // render: h => h(TheHubComponent, {
-      //   props: {
-      //     description: this.properties.description
-      //   }
-      // })
       template: `<div>
         <TheHubComponent/>
         <QuickLinksComponent/>
