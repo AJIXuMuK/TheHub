@@ -9,7 +9,7 @@ import {Button} from 'primevue/button';
 import 'jquery';
 import 'bootstrap';
 import 'primebuton';
-
+import { sp } from "@pnp/sp";
 import * as strings from 'TheHubWebPartStrings';
 import { SPComponentLoader } from '@microsoft/sp-loader';
 // Importing Vue.js
@@ -17,12 +17,34 @@ import Vue from 'vue';
 // Importing Vue.js SFC
 import TheHubComponent from './components/TheHub.vue';
 import QuickLinksComponent from './components/QuickLinks.vue';
+import BannerComponent from './components/Banner.vue';
 import { ThemeChangedEventArgs } from '@microsoft/sp-component-base';
+import {DataContextBase} from '../../services';
 export interface ITheHubWebPartProps {
   description: string;
 }
 
 export default class TheHubWebPart extends BaseClientSideWebPart<ITheHubWebPartProps> {
+
+  //To get the context in sharepoint site, below code is must.
+  //private bannerComponent=BannerComponent;
+  private dataContextBase: DataContextBase;
+  private spHttpClient;
+  private siteAbsoluteUrl;
+  public onInit(): Promise<void> {
+    
+    return super.onInit().then(_ => {
+      sp.setup({
+          spfxContext: this.context
+      });
+      console.log("Super onInit called");
+      //this.bannerComponent=new BannerComponent(this.context.spHttpClient);
+      this.dataContextBase=new DataContextBase(this.context.pageContext.web.absoluteUrl,this.context.spHttpClient);
+    });
+  }
+
+
+
 
   public render(): void {
 
@@ -36,14 +58,24 @@ export default class TheHubWebPart extends BaseClientSideWebPart<ITheHubWebPartP
     const id: string = `wp-${this.instanceId}`;
     this.domElement.innerHTML = `<div id="${id}"></div>`;
 
+    this.spHttpClient=this.context.spHttpClient;
+    this.siteAbsoluteUrl=this.context.pageContext.web.absoluteUrl;
+
     let el = new Vue({
       el: `#${id}`,
       template: `<div>
         <TheHubComponent/>
         <QuickLinksComponent/>
+        <BannerComponent :propSpHttpClient="spHttpClient" :propSPAbsUrl="siteAbsoluteUrl"></BannerComponent>
       </div>
       `,
-      components: { TheHubComponent,QuickLinksComponent,Button }
+      components: { TheHubComponent,QuickLinksComponent,BannerComponent,Button },
+      data : () => {
+        return {
+          spHttpClient: this.spHttpClient,
+          siteAbsoluteUrl:this.siteAbsoluteUrl
+        };
+      }
     });
   }
 

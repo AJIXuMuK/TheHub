@@ -5,9 +5,10 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from "vue-property-decorator";
+import { Vue, Component,Prop } from "vue-property-decorator";
 import VRuntimeTemplate from "v-runtime-template";
 import * as $ from "jquery";
+import {DataContextBase} from '../../../services';
 
 @Component({
   components: {
@@ -15,6 +16,8 @@ import * as $ from "jquery";
   }
 })
 export default class QuickLinks extends Vue {
+
+
   private title = `
 <div id="myCarousel1" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
@@ -56,11 +59,16 @@ export default class QuickLinks extends Vue {
     `;
 
   private mounted() {
-    $(".bannerPositionDiv").before($(this.title));
+    //$(".bannerPositionDiv").before($(this.title));
   }
 
   private login() {
     alert("ok");
   }
+
+  private fetchBannerNews(){
+
+  }
+
 }
 </script>

@@ -25,6 +25,10 @@
     "primebuton":{
       "path": "https://unpkg.com/primevue/components/button/button.umd.min.js",
       "globalName": "PrimeButton"
+    },
+    "yammer":{
+      "path": "https://c64.assets-yammer.com/assets/platform_embed.js",
+      "globalName": "yammer"
     }
   },
   "localizedResources": {
