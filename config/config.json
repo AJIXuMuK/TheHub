@@ -22,9 +22,17 @@
       "globalName": "bootstrap",
       "globalDependencies": ["jquery"]
     },
-    "primebuton":{
+    "primedropdown":{
+      "path": "https://unpkg.com/primevue/components/dropdown/dropdown.umd.min.js",
+      "globalName": "primedropdown"
+    },
+    "primebutton":{
       "path": "https://unpkg.com/primevue/components/button/button.umd.min.js",
-      "globalName": "PrimeButton"
+      "globalName": "primebutton"
+    },
+    "primedatatable":{
+      "path": "https://unpkg.com/primevue/components/datatable/datatable.umd.min.js",
+      "globalName": "primedatatable"
     },
     "yammer":{
       "path": "https://c64.assets-yammer.com/assets/platform_embed.js",

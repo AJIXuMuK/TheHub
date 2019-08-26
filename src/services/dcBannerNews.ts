@@ -15,7 +15,7 @@ export class DataContextBannerNews{
               httpOptions.getFullMetadata
             ) // get response & parse body as JSON
               .then((response: SPHttpClientResponse): Promise<{ value: any }> => {
-                console.log("Final response")
+                console.log("Final response");
                 return response.json();
               }) // get parsed response as array, and return
               .then((response: { value: any }) => {

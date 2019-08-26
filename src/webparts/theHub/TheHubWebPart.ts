@@ -6,9 +6,13 @@ import {
 } from '@microsoft/sp-property-pane';
 import { escape } from '@microsoft/sp-lodash-subset';
 import {Button} from 'primevue/button';
+import {Dropdown} from 'primevue/dropdown';
+//import {DataTable} from 'primevue/datatable';
 import 'jquery';
 import 'bootstrap';
-import 'primebuton';
+import 'primebutton';
+import 'primedatatable';
+import 'primedropdown';
 import { sp } from "@pnp/sp";
 import * as strings from 'TheHubWebPartStrings';
 import { SPComponentLoader } from '@microsoft/sp-loader';
@@ -18,8 +22,11 @@ import Vue from 'vue';
 import TheHubComponent from './components/TheHub.vue';
 import QuickLinksComponent from './components/QuickLinks.vue';
 import BannerComponent from './components/Banner.vue';
+import DataTableTestComponent from './components/DataTable.vue';
 import { ThemeChangedEventArgs } from '@microsoft/sp-component-base';
 import {DataContextBase} from '../../services';
+
+
 export interface ITheHubWebPartProps {
   description: string;
 }
@@ -67,9 +74,10 @@ export default class TheHubWebPart extends BaseClientSideWebPart<ITheHubWebPartP
         <TheHubComponent/>
         <QuickLinksComponent/>
         <BannerComponent :propSpHttpClient="spHttpClient" :propSPAbsUrl="siteAbsoluteUrl"></BannerComponent>
+        <DataTableTestComponent/>
       </div>
       `,
-      components: { TheHubComponent,QuickLinksComponent,BannerComponent,Button },
+      components: { TheHubComponent,QuickLinksComponent,BannerComponent,DataTableTestComponent,Button,Dropdown },
       data : () => {
         return {
           spHttpClient: this.spHttpClient,

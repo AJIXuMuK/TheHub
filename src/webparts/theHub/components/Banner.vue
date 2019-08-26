@@ -38,7 +38,7 @@ export default class Banner extends Vue {
 
     private fetchBannerNews(){
         var endPoint=this.dataContextBase.returnEndPointForRespectiveSite
-            ("https://m3propertyunit.sharepoint.com/sites/Intranet/News/Melbourne/");
+            ("https://.sharepoint.com/sites/Intranet/News/Melbourne/");
         this.dataContextBase.getBannerNews(12,"yes","yes",endPoint+" getbytitle('Site Pages')/items?$filter=(IsPromoted eq 'No') &$top=12&$orderby=Created desc").then((news:any) => {
             this.newsItems=news;
             console.log(this.newsItems);
