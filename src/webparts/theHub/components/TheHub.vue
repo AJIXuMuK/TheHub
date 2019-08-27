@@ -1,22 +1,22 @@
 <template>
 <div>
-    <Button label="Secondary" class="p-button-secondary" />
+    <Button label="Secondary" class="p-button-secondary" v-on:click="_onClick">Test button</Button>
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
           <div class="item active">
             <a href="https://www.google.com/">
-              <img href="https://www.google.com/" src="https://evocate.sharepoint.com/PublishingImages/Pages/News%20And%20Updates/2019/May/New-Client-Headspace/Headspace-News.jpg.png?RenditionID=6" alt="Los Angeles">
+              <img href="https://www.google.com/" src="https://images.pexels.com/photos/257360/pexels-photo-257360.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Los Angeles">
             </a>
           </div>
 
           <div class="item">
-            <img src="https://evocate.sharepoint.com//PublishingImages/Pages/News%20And%20Updates/2019/June/Vinnies-SharePoint-Migration/BannerImage.png?RenditionID=6" alt="Chicago">
+            <img src="https://images.unsplash.com/photo-1433086966358-54859d0ed716?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" alt="Chicago">
           </div>
 
           <div class="item">
-            <img src="https://evocate.sharepoint.com//PublishingImages/Pages/News%20And%20Updates/2019/May/New-Client-GTA/GTA-news.jpg.png?RenditionID=6" alt="New York">
+            <img src="https://cdn.pixabay.com/photo/2015/12/01/20/28/fall-1072821__340.jpg" alt="New York">
           </div>
         </div>
 
@@ -35,6 +35,7 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
+import ButtonComponent from 'primevue/components/button/Button.vue';
 
 /**
  * Component's properties
@@ -46,7 +47,11 @@ export interface ITheHubProps {
 /**
  * Class-component
  */
-@Component
+@Component({
+  components: {
+    'Button': ButtonComponent
+  }
+})
 export default class TheHub extends Vue implements ITheHubProps {
 
     /**
@@ -54,6 +59,10 @@ export default class TheHub extends Vue implements ITheHubProps {
      */
     @Prop()
     public description: string;
+
+    private _onClick() {
+      alert('button clicked');
+    }
 
 }
 </script>

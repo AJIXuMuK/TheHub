@@ -11,6 +11,8 @@ const gulp = require('gulp');
 const build = require('@microsoft/sp-build-web');
 const gulpSequence = require('gulp-sequence');
 
+const TerserPlugin = require('terser-webpack-plugin-legacy')
+
 build.addSuppression(`Warning - [sass] The local CSS class 'ms-Grid' is not camelCase and will not be type-safe.`);
 
 // Create clean distrubution package
@@ -91,6 +93,15 @@ const themedStyleLoader = require.resolve('@microsoft/loader-load-themed-styles'
                     'sass-loader'
                 ]
             }];
+
+            // Replace the UglifyJS plugin with Terser, so that this will work with ES6
+            generatedConfiguration.plugins.forEach((plugin, i) => {
+                if (plugin.options && plugin.options.mangle) {
+                generatedConfiguration.plugins[i] = new TerserPlugin({
+                    test: /\.(js|vue)(\?.*)?$/i
+                })
+                }
+            })
 
             generatedConfiguration.plugins.push(vuePlugin);
         

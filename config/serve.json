@@ -8,3 +8,5 @@
     "entryPath": "node_modules/@microsoft/sp-webpart-workbench/lib/api/"
   }
 }
+
+//"https://localhost:5432/workbench",
